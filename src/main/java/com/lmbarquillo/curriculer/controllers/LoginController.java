@@ -2,6 +2,7 @@ package com.lmbarquillo.curriculer.controllers;
 
 import com.lmbarquillo.curriculer.exceptions.NotFoundException;
 import com.lmbarquillo.curriculer.models.LoginModel;
+import com.lmbarquillo.curriculer.models.UserBasicModel;
 import com.lmbarquillo.curriculer.services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginModel> login(@RequestBody LoginModel model) throws NotFoundException {
+    public ResponseEntity<UserBasicModel> login(@RequestBody LoginModel model) throws NotFoundException {
         return ResponseEntity.ok(userService.login(model));
     }
 }

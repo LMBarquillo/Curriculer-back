@@ -7,9 +7,13 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<Long, User> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query(value = "SELECT * FROM users WHERE user = :user AND password = PASSWORD(:pass)",
+    @Query(value = "SELECT * FROM user WHERE user = :user AND password = PASSWORD(:pass)",
             nativeQuery = true)
     User login(@Param("user") String user, @Param("pass") String password);
+
+    @Query(value = "SELECT * FROM user WHERE user = :user AND SHA2(password, 512) = :pass",
+            nativeQuery = true)
+    User checkUser(@Param("user") String user, @Param("pass") String password);
 }

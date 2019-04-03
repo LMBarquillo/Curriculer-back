@@ -15,6 +15,8 @@ public class User {
     private String password;
     @Column(length = 60, nullable = false)
     private String name;
+    @Column(length = 100, nullable = false)
+    private String surname;
     @Column(length = 150, nullable = false)
     private String address;
     @Column(length = 60, nullable = false)
@@ -61,6 +63,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getAddress() {
