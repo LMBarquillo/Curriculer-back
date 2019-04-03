@@ -3,7 +3,7 @@ package com.lmbarquillo.curriculer.entities;
 import javax.persistence.*;
 
 @Entity
-public class DesiredJobs {
+public class DesiredJob {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -12,7 +12,7 @@ public class DesiredJobs {
     private String job;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Users user;
+    private User user;
 
     public Long getId() {
         return id;
@@ -30,11 +30,11 @@ public class DesiredJobs {
         this.job = job;
     }
 
-    public Users getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(Users user) {
+    public void setUser(User user) {
         this.user = user;
     }
 }

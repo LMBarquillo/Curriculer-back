@@ -11,19 +11,19 @@ public class LanguageSkills {
     private LanguageSkillsPK pk;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private LanguageSkillGrades listening;
+    private LanguageSkillGrade listening;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private LanguageSkillGrades reading;
+    private LanguageSkillGrade reading;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private LanguageSkillGrades interaction;
+    private LanguageSkillGrade interaction;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private LanguageSkillGrades production;
+    private LanguageSkillGrade production;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private LanguageSkillGrades writing;
+    private LanguageSkillGrade writing;
 
     public LanguageSkillsPK getPk() {
         return pk;
@@ -33,51 +33,51 @@ public class LanguageSkills {
         this.pk = pk;
     }
 
-    public LanguageSkillGrades getListening() {
+    public LanguageSkillGrade getListening() {
         return listening;
     }
 
-    public void setListening(LanguageSkillGrades listening) {
+    public void setListening(LanguageSkillGrade listening) {
         this.listening = listening;
     }
 
-    public LanguageSkillGrades getReading() {
+    public LanguageSkillGrade getReading() {
         return reading;
     }
 
-    public void setReading(LanguageSkillGrades reading) {
+    public void setReading(LanguageSkillGrade reading) {
         this.reading = reading;
     }
 
-    public LanguageSkillGrades getInteraction() {
+    public LanguageSkillGrade getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(LanguageSkillGrades interaction) {
+    public void setInteraction(LanguageSkillGrade interaction) {
         this.interaction = interaction;
     }
 
-    public LanguageSkillGrades getProduction() {
+    public LanguageSkillGrade getProduction() {
         return production;
     }
 
-    public void setProduction(LanguageSkillGrades production) {
+    public void setProduction(LanguageSkillGrade production) {
         this.production = production;
     }
 
-    public LanguageSkillGrades getWriting() {
+    public LanguageSkillGrade getWriting() {
         return writing;
     }
 
-    public void setWriting(LanguageSkillGrades writing) {
+    public void setWriting(LanguageSkillGrade writing) {
         this.writing = writing;
     }
 
-    public Users getUser() {
+    public User getUser() {
         return pk.getUser();
     }
 
-    public Languages getLanguage() {
+    public Language getLanguage() {
         return pk.getLanguage();
     }
 }

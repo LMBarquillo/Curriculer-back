@@ -3,7 +3,7 @@ package com.lmbarquillo.curriculer.entities;
 import javax.persistence.*;
 
 @Entity
-public class SkillGrades {
+public class SkillGrade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column

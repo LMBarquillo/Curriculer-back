@@ -3,7 +3,7 @@ package com.lmbarquillo.curriculer.entities;
 import javax.persistence.*;
 
 @Entity
-public class Languages {
+public class Language {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column

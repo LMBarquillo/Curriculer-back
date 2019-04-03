@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Jobs {
+public class Job {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -19,10 +19,10 @@ public class Jobs {
     private String city;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Sectors sector;
+    private Sector sector;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Users user;
+    private User user;
 
     public Long getId() {
         return id;
@@ -64,19 +64,19 @@ public class Jobs {
         this.city = city;
     }
 
-    public Sectors getSector() {
+    public Sector getSector() {
         return sector;
     }
 
-    public void setSector(Sectors sector) {
+    public void setSector(Sector sector) {
         this.sector = sector;
     }
 
-    public Users getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(Users user) {
+    public void setUser(User user) {
         this.user = user;
     }
 }

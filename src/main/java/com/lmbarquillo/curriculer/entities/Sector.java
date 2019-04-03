@@ -3,7 +3,7 @@ package com.lmbarquillo.curriculer.entities;
 import javax.persistence.*;
 
 @Entity
-public class Sectors {
+public class Sector {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column

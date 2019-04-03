@@ -3,7 +3,7 @@ package com.lmbarquillo.curriculer.entities;
 import javax.persistence.*;
 
 @Entity
-public class Trainings {
+public class Training {
     @Id
     @GeneratedValue
     @Column
@@ -18,5 +18,5 @@ public class Trainings {
     private String city;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Users user;
+    private User user;
 }

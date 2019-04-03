@@ -9,24 +9,24 @@ import java.io.Serializable;
 public class LanguageSkillsPK implements Serializable {
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Users user;
+    private User user;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Languages language;
+    private Language language;
 
-    public Users getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(Users user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
-    public Languages getLanguage() {
+    public Language getLanguage() {
         return language;
     }
 
-    public void setLanguage(Languages language) {
+    public void setLanguage(Language language) {
         this.language = language;
     }
 }

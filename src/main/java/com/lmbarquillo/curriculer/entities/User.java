@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -29,7 +29,7 @@ public class Users {
     private String drivingLicense;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Languages motherLanguage;
+    private Language motherLanguage;
 
     public Long getId() {
         return id;
@@ -111,11 +111,11 @@ public class Users {
         this.drivingLicense = drivingLicense;
     }
 
-    public Languages getMotherLanguage() {
+    public Language getMotherLanguage() {
         return motherLanguage;
     }
 
-    public void setMotherLanguage(Languages motherLanguage) {
+    public void setMotherLanguage(Language motherLanguage) {
         this.motherLanguage = motherLanguage;
     }
 }

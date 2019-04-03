@@ -4,72 +4,72 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-public class DigitalSkills implements Serializable {
+public class DigitalSkill implements Serializable {
     @Id
     @OneToOne
     @JoinColumn(nullable = false)
-    private Users user;
+    private User user;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private SkillGrades processing;
+    private SkillGrade processing;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private SkillGrades communication;
+    private SkillGrade communication;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private SkillGrades contents;
+    private SkillGrade contents;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private SkillGrades safety;
+    private SkillGrade safety;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private SkillGrades solving;
+    private SkillGrade solving;
 
-    public Users getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(Users user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
-    public SkillGrades getProcessing() {
+    public SkillGrade getProcessing() {
         return processing;
     }
 
-    public void setProcessing(SkillGrades processing) {
+    public void setProcessing(SkillGrade processing) {
         this.processing = processing;
     }
 
-    public SkillGrades getCommunication() {
+    public SkillGrade getCommunication() {
         return communication;
     }
 
-    public void setCommunication(SkillGrades communication) {
+    public void setCommunication(SkillGrade communication) {
         this.communication = communication;
     }
 
-    public SkillGrades getContents() {
+    public SkillGrade getContents() {
         return contents;
     }
 
-    public void setContents(SkillGrades contents) {
+    public void setContents(SkillGrade contents) {
         this.contents = contents;
     }
 
-    public SkillGrades getSafety() {
+    public SkillGrade getSafety() {
         return safety;
     }
 
-    public void setSafety(SkillGrades safety) {
+    public void setSafety(SkillGrade safety) {
         this.safety = safety;
     }
 
-    public SkillGrades getSolving() {
+    public SkillGrade getSolving() {
         return solving;
     }
 
-    public void setSolving(SkillGrades solving) {
+    public void setSolving(SkillGrade solving) {
         this.solving = solving;
     }
 }
