@@ -10,6 +10,8 @@ public class Language {
     private Long id;
     @Column(length = 45, nullable = false)
     private String language;
+    @Column(length = 2, nullable = false)
+    private String code;
 
     public Long getId() {
         return id;
@@ -25,5 +27,13 @@ public class Language {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

@@ -5,6 +5,7 @@ import com.lmbarquillo.curriculer.utilities.Utilities;
 
 public class UserBasicModel {
     private String user;
+    private String surname;
     private String token;
     private String name;
     private String picture;
@@ -15,6 +16,7 @@ public class UserBasicModel {
         // Hasheamos el password encriptado. Doble seguridad.
         model.setToken(Utilities.sha512(entity.getPassword()));
         model.setName(entity.getName());
+        model.setSurname(entity.getSurname());
         model.setPicture(entity.getPicture());
         return model;
     }
@@ -41,6 +43,14 @@ public class UserBasicModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getPicture() {
