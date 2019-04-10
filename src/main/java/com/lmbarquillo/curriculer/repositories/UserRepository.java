@@ -16,4 +16,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(value = "SELECT * FROM user WHERE user = :user AND SHA2(password, 512) = :pass",
             nativeQuery = true)
     User checkUser(@Param("user") String user, @Param("pass") String password);
+
+
+    Boolean existsUserByEmail(String email);
+
+    Boolean existsUserByUser(String username);
 }

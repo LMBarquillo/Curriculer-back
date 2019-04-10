@@ -1,6 +1,10 @@
 package com.lmbarquillo.curriculer.entities;
 
+import com.lmbarquillo.curriculer.models.UserRegisterModel;
+import com.lmbarquillo.curriculer.utilities.Utilities;
+
 import javax.persistence.*;
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
 @Entity
@@ -32,6 +36,18 @@ public class User {
     @ManyToOne
     @JoinColumn(nullable = false)
     private Language motherLanguage;
+
+    public static User from(UserRegisterModel model) throws UnsupportedEncodingException {
+        User user = new User();
+        user.setName(model.getName());
+        user.setSurname(model.getSurname());
+        user.setEmail(model.getEmail());
+        user.setUser(model.getUser());
+        user.setPassword(Utilities.MySQLPassword(model.getPassword()));
+        user.setAddress("");
+
+        return user;
+    }
 
     public Long getId() {
         return id;

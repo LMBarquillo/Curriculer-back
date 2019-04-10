@@ -6,6 +6,7 @@ import com.lmbarquillo.curriculer.utilities.Values;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,16 +24,16 @@ public class Interceptors extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
-        String endPoint = request.getRequestURI();
+
         String auth = request.getHeader(Values.Strings.HEADER_AUTH);
 
-        // Si vamos al login, no necesitamos credenciales
-        if(endPoint.equals(Values.EndPoints.LOGIN)) {
+        // Algunos endPoint no necesitan autorización, por ejemplo el login o el registro de usuario.
+        if(notAuthorizationNeeded(request)) {
             return true;
         }
         // Si no recibimos credenciales, tiramos un error
         if(auth == null) {
-            log.error(String.format(Values.Errors.ERROR_NO_AUTHORIZATION, getRemoteAddr(request)));
+            log.error(String.format(Values.Errors.NO_AUTHORIZATION, getRemoteAddr(request)));
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
             return false;
         }
@@ -41,7 +42,7 @@ public class Interceptors extends HandlerInterceptorAdapter {
         User user = userService.checkUser(authValues[0], authValues[1]);
         // Si no existe el usuario, tiramos error
         if(user == null) {
-            log.error(String.format(Values.Errors.ERROR_UNAUTHORIZED, getRemoteAddr(request)));
+            log.error(String.format(Values.Errors.UNAUTHORIZED, getRemoteAddr(request)));
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
             return false;
         }
@@ -58,6 +59,14 @@ public class Interceptors extends HandlerInterceptorAdapter {
             return ipFromHeader;
         }
         return request.getRemoteAddr();
+    }
+
+    private boolean notAuthorizationNeeded(HttpServletRequest request) {
+        String endPoint = request.getRequestURI();
+
+        return endPoint.equals(Values.EndPoints.LOGIN) ||
+                (endPoint.equals(Values.EndPoints.USER) && request.getMethod().equals(HttpMethod.POST.toString()));
+
     }
 
 }

@@ -1,7 +1,7 @@
 package com.lmbarquillo.curriculer.controllers;
 
 import com.lmbarquillo.curriculer.entities.User;
-import com.lmbarquillo.curriculer.exceptions.NotFoundException;
+import com.lmbarquillo.curriculer.exceptions.generic.NotFoundException;
 import com.lmbarquillo.curriculer.models.LoginModel;
 import com.lmbarquillo.curriculer.models.UserBasicModel;
 import com.lmbarquillo.curriculer.services.UserService;

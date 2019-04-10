@@ -8,8 +8,11 @@ public class Values {
     }
 
     public static class Errors {
-        public static final String ERROR_NO_AUTHORIZATION = "Petición de: %s - Sin autenticación";
-        public static final String ERROR_UNAUTHORIZED = "Petición de: %s - Autenticación incorrecta";
+        public static final String NO_AUTHORIZATION = "Petición de: %s - Sin autenticación";
+        public static final String UNAUTHORIZED = "Petición de: %s - Autenticación incorrecta";
+        public static final String INVALID_USER = "Usuario o contraseña incorrectos";
+        public static final String DUPLICATED_EMAIL = "Ya existe un usuario con el email escogido";
+        public static final String DUPLICATED_USER = "Ya existe un usuario con el usuario escogido";
     }
 
     public static class Info {
@@ -18,5 +21,6 @@ public class Values {
 
     public static class EndPoints {
         public static final String LOGIN = "/login";
+        public static final String USER = "/user";
     }
 }

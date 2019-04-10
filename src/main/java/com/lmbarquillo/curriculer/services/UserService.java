@@ -1,12 +1,19 @@
 package com.lmbarquillo.curriculer.services;
 
 import com.lmbarquillo.curriculer.entities.User;
-import com.lmbarquillo.curriculer.exceptions.NotFoundException;
+import com.lmbarquillo.curriculer.exceptions.DuplicatedItemException;
+import com.lmbarquillo.curriculer.exceptions.generic.NotFoundException;
 import com.lmbarquillo.curriculer.models.LoginModel;
 import com.lmbarquillo.curriculer.models.UserBasicModel;
+import com.lmbarquillo.curriculer.models.UserModel;
+import com.lmbarquillo.curriculer.models.UserRegisterModel;
+
+import java.io.UnsupportedEncodingException;
 
 public interface UserService {
     UserBasicModel login(LoginModel model) throws NotFoundException;
 
     User checkUser(String user, String token);
+
+    UserModel createUser(UserRegisterModel model) throws DuplicatedItemException, UnsupportedEncodingException;
 }
