@@ -25,4 +25,9 @@ public class UserServiceImpl implements UserService {
         return UserBasicModel.from(user);
     }
 
+    @Override
+    public User checkUser(String user, String token) {
+        return userRepository.checkUser(user, token);
+    }
+
 }

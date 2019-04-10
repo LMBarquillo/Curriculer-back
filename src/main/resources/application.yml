@@ -4,7 +4,7 @@ spring:
     username: curriculer
     password: 5V4dWb5y7rUdBwfmpzXBgCvJzMkUrMOK9dDAr5ggrAv3niEW4D
   jpa:
-    show-sql: true
+    show-sql: false
     hibernate:
       ddl-auto: update
     properties:
