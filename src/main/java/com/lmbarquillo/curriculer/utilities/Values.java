@@ -23,4 +23,8 @@ public class Values {
         public static final String LOGIN = "/login";
         public static final String USER = "/user";
     }
+
+    public static class Keys {
+        public static final Long LANGUAGE_SPANISH = 1L;
+    }
 }
