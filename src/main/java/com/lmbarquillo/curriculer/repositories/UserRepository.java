@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-
     Optional<User> findByUserAndPassword(String user, String pass);
 
     @Query(value = "SELECT * FROM user WHERE user = :user AND SHA2(password, 512) = :pass",

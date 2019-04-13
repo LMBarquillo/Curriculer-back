@@ -24,8 +24,8 @@ public class Interceptors extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
-
         String auth = request.getHeader(Values.Strings.HEADER_AUTH);
+        log.info(String.format(Values.Info.REQUEST_RECEIVED, request.getMethod(), request.getRequestURI()));
 
         // Algunos endPoint no necesitan autorización, por ejemplo el login o el registro de usuario.
         if(notAuthorizationNeeded(request)) {
@@ -64,7 +64,8 @@ public class Interceptors extends HandlerInterceptorAdapter {
     private boolean notAuthorizationNeeded(HttpServletRequest request) {
         String endPoint = request.getRequestURI();
 
-        return endPoint.equals(Values.EndPoints.LOGIN) ||
+        return request.getMethod().equals(HttpMethod.OPTIONS.toString()) ||
+                endPoint.equals(Values.EndPoints.LOGIN) ||
                 (endPoint.equals(Values.EndPoints.USER) && request.getMethod().equals(HttpMethod.POST.toString()));
 
     }

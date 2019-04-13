@@ -17,6 +17,7 @@ public class Values {
 
     public static class Info {
         public static final String USER_AUTHORIZED = "Petición de usuario autorizado: %s";
+        public static final String REQUEST_RECEIVED = "Recibida petición %s a: %s";
     }
 
     public static class EndPoints {
