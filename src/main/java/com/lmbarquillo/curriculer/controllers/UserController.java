@@ -2,6 +2,7 @@ package com.lmbarquillo.curriculer.controllers;
 
 import com.lmbarquillo.curriculer.entities.User;
 import com.lmbarquillo.curriculer.exceptions.DuplicatedItemException;
+import com.lmbarquillo.curriculer.models.UserBasicModel;
 import com.lmbarquillo.curriculer.models.UserModel;
 import com.lmbarquillo.curriculer.models.UserRegisterModel;
 import com.lmbarquillo.curriculer.services.UserService;
@@ -25,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping(Values.EndPoints.USER)
-    public ResponseEntity<UserModel> userRegister(@RequestBody UserRegisterModel user) throws DuplicatedItemException, UnsupportedEncodingException {
+    public ResponseEntity<UserBasicModel> userRegister(@RequestBody UserRegisterModel user) throws DuplicatedItemException, UnsupportedEncodingException {
         return ResponseEntity.ok(userService.createUser(user));
     }
 

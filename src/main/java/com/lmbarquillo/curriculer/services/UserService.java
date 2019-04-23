@@ -5,7 +5,6 @@ import com.lmbarquillo.curriculer.exceptions.DuplicatedItemException;
 import com.lmbarquillo.curriculer.exceptions.generic.NotFoundException;
 import com.lmbarquillo.curriculer.models.LoginModel;
 import com.lmbarquillo.curriculer.models.UserBasicModel;
-import com.lmbarquillo.curriculer.models.UserModel;
 import com.lmbarquillo.curriculer.models.UserRegisterModel;
 
 import java.io.UnsupportedEncodingException;
@@ -15,5 +14,5 @@ public interface UserService {
 
     User checkUser(String user, String token);
 
-    UserModel createUser(UserRegisterModel model) throws DuplicatedItemException, UnsupportedEncodingException;
+    UserBasicModel createUser(UserRegisterModel model) throws DuplicatedItemException, UnsupportedEncodingException;
 }

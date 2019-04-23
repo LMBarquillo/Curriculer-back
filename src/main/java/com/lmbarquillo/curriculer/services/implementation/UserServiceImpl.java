@@ -6,7 +6,6 @@ import com.lmbarquillo.curriculer.exceptions.DuplicatedItemException;
 import com.lmbarquillo.curriculer.exceptions.generic.NotFoundException;
 import com.lmbarquillo.curriculer.models.LoginModel;
 import com.lmbarquillo.curriculer.models.UserBasicModel;
-import com.lmbarquillo.curriculer.models.UserModel;
 import com.lmbarquillo.curriculer.models.UserRegisterModel;
 import com.lmbarquillo.curriculer.repositories.LanguageRepository;
 import com.lmbarquillo.curriculer.repositories.UserRepository;
@@ -41,7 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserModel createUser(UserRegisterModel model) throws DuplicatedItemException, UnsupportedEncodingException {
+    public UserBasicModel createUser(UserRegisterModel model) throws DuplicatedItemException, UnsupportedEncodingException {
         if(userRepository.existsUserByEmail(model.getEmail())) {
             throw new DuplicatedItemException(Values.Errors.DUPLICATED_EMAIL);
         }
@@ -54,7 +53,7 @@ public class UserServiceImpl implements UserService {
         user.setMotherLanguage(lang);
 
         userRepository.save(user);
-        return UserModel.from(user);
+        return UserBasicModel.from(user);
     }
 
 }
