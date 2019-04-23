@@ -11,8 +11,8 @@ public class Values {
         public static final String NO_AUTHORIZATION = "Petición de: %s - Sin autenticación";
         public static final String UNAUTHORIZED = "Petición de: %s - Autenticación incorrecta";
         public static final String INVALID_USER = "Usuario o contraseña incorrectos";
-        public static final String DUPLICATED_EMAIL = "Ya existe un usuario con el email escogido";
-        public static final String DUPLICATED_USER = "Ya existe un usuario con el usuario escogido";
+        public static final String DUPLICATED_EMAIL = "Ya existe un usuario con el email introducido";
+        public static final String DUPLICATED_USER = "El nombre de usuario introducido ya existe. Por favor, elija otro";
     }
 
     public static class Info {
