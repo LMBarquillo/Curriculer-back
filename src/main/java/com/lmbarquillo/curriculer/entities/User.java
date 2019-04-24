@@ -23,6 +23,8 @@ public class User {
     private String surname;
     @Column(length = 150, nullable = false)
     private String address;
+    @Column(length = 80, nullable = false)
+    private String city;
     @Column(length = 60, nullable = false)
     private String email;
     @Column
@@ -95,6 +97,14 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getEmail() {
