@@ -1,31 +1,21 @@
-package com.lmbarquillo.curriculer.entities;
+package com.lmbarquillo.curriculer.models;
 
-import javax.persistence.*;
+import com.lmbarquillo.curriculer.entities.Training;
 
-@Entity
-public class Training {
-    @Id
-    @GeneratedValue
-    @Column
-    private Long id;
-    @Column(scale = 4, nullable = false)
+public class TrainingModel {
     private Integer promotion;
-    @Column(length = 100, nullable = false)
     private String qualification;
-    @Column(length = 50, nullable = false)
     private String center;
-    @Column(length = 100)
     private String city;
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private User user;
 
-    public Long getId() {
-        return id;
-    }
+    public static TrainingModel from(Training entity) {
+        TrainingModel model = new TrainingModel();
+        model.setPromotion(entity.getPromotion());
+        model.setQualification(entity.getQualification());
+        model.setCenter(entity.getCenter());
+        model.setCity(entity.getCity());
 
-    public void setId(Long id) {
-        this.id = id;
+        return model;
     }
 
     public Integer getPromotion() {
@@ -58,13 +48,5 @@ public class Training {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

@@ -24,6 +24,7 @@ public class Values {
         public static final String LOGIN = "/login";
         public static final String USER = "/user";
         public static final String AVATAR = "/user/avatar";
+        public static final String TRAININGS = "/trainings";
     }
 
     public static class Keys {
