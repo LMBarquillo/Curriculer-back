@@ -2,9 +2,9 @@ package com.lmbarquillo.curriculer.entities;
 
 import com.lmbarquillo.curriculer.models.UserRegisterModel;
 import com.lmbarquillo.curriculer.utilities.Utilities;
+import com.lmbarquillo.curriculer.utilities.Values;
 
 import javax.persistence.*;
-import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
 @Entity
@@ -29,7 +29,7 @@ public class User {
     private Date birthdate;
     @Column(length = 45)
     private String nationality;
-    @Column(length = 150)
+    @Column(columnDefinition = Values.Definitions.TEXT)
     private String picture;
     @Column(length = 15)
     private String drivingLicense;
@@ -37,7 +37,7 @@ public class User {
     @JoinColumn(nullable = false)
     private Language motherLanguage;
 
-    public static User from(UserRegisterModel model) throws UnsupportedEncodingException {
+    public static User from(UserRegisterModel model) {
         User user = new User();
         user.setName(model.getName());
         user.setSurname(model.getSurname());

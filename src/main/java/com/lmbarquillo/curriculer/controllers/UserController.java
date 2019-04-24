@@ -9,10 +9,7 @@ import com.lmbarquillo.curriculer.services.UserService;
 import com.lmbarquillo.curriculer.utilities.Values;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
 
@@ -35,4 +32,9 @@ public class UserController {
         return ResponseEntity.ok(UserModel.from(user));
     }
 
+    @PutMapping(Values.EndPoints.AVATAR)
+    public ResponseEntity<UserModel> updateImage(@RequestAttribute(Values.Strings.ATTRIBUTE_USER) User user,
+                                                 @RequestBody String img) {
+        return ResponseEntity.ok(userService.updateImage(user, img));
+    }
 }

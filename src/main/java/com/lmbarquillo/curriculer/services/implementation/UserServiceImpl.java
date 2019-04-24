@@ -6,6 +6,7 @@ import com.lmbarquillo.curriculer.exceptions.DuplicatedItemException;
 import com.lmbarquillo.curriculer.exceptions.generic.NotFoundException;
 import com.lmbarquillo.curriculer.models.LoginModel;
 import com.lmbarquillo.curriculer.models.UserBasicModel;
+import com.lmbarquillo.curriculer.models.UserModel;
 import com.lmbarquillo.curriculer.models.UserRegisterModel;
 import com.lmbarquillo.curriculer.repositories.LanguageRepository;
 import com.lmbarquillo.curriculer.repositories.UserRepository;
@@ -14,7 +15,6 @@ import com.lmbarquillo.curriculer.utilities.Utilities;
 import com.lmbarquillo.curriculer.utilities.Values;
 import org.springframework.stereotype.Service;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Optional;
 
 @Service
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserBasicModel createUser(UserRegisterModel model) throws DuplicatedItemException, UnsupportedEncodingException {
+    public UserBasicModel createUser(UserRegisterModel model) throws DuplicatedItemException {
         if(userRepository.existsUserByEmail(model.getEmail())) {
             throw new DuplicatedItemException(Values.Errors.DUPLICATED_EMAIL);
         }
@@ -56,4 +56,9 @@ public class UserServiceImpl implements UserService {
         return UserBasicModel.from(user);
     }
 
+    @Override
+    public UserModel updateImage(User user, String img) {
+        user.setPicture(img);
+        return UserModel.from(userRepository.save(user));
+    }
 }

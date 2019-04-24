@@ -31,6 +31,7 @@ public class Interceptors extends HandlerInterceptorAdapter {
         if(notAuthorizationNeeded(request)) {
             return true;
         }
+
         // Si no recibimos credenciales, tiramos un error
         if(auth == null) {
             log.error(String.format(Values.Errors.NO_AUTHORIZATION, getRemoteAddr(request)));
