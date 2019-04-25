@@ -14,6 +14,7 @@ public class Values {
         public static final String DUPLICATED_EMAIL = "Ya existe un usuario con el email introducido";
         public static final String DUPLICATED_USER = "El nombre de usuario introducido ya existe. Por favor, elija otro";
         public static final String TRAINING_NOT_FOUND = "Estudios no encontrados";
+        public static final String SECTOR_NOT_FOUND = "Sector de actividad no encontrado";
     }
 
     public static class Info {
@@ -25,7 +26,8 @@ public class Values {
         public static final String LOGIN = "/login";
         public static final String USER = "/user";
         public static final String AVATAR = "/user/avatar";
-        public static final String TRAININGS = "/trainings";
+        public static final String TRAININGS = "/training";
+        public static final String JOBS = "/job";
     }
 
     public static class Keys {

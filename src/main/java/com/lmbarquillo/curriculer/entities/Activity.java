@@ -14,6 +14,7 @@ public class Activity {
     @JoinColumn(nullable = false)
     private Job job;
 
+
     public Long getId() {
         return id;
     }

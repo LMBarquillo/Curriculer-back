@@ -26,7 +26,7 @@ public class Job {
     @ManyToOne
     @JoinColumn(nullable = false)
     private User user;
-    @OneToMany(mappedBy = Values.Keys.ACTIVITY_JOB)
+    @OneToMany(mappedBy = Values.Keys.ACTIVITY_JOB, cascade = CascadeType.ALL)
     private List<Activity> activities;
 
     public Long getId() {
