@@ -13,6 +13,7 @@ public class Values {
         public static final String INVALID_USER = "Usuario o contraseña incorrectos";
         public static final String DUPLICATED_EMAIL = "Ya existe un usuario con el email introducido";
         public static final String DUPLICATED_USER = "El nombre de usuario introducido ya existe. Por favor, elija otro";
+        public static final String TRAINING_NOT_FOUND = "Estudios no encontrados";
     }
 
     public static class Info {

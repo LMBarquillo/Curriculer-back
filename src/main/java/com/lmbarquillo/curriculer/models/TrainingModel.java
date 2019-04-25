@@ -3,6 +3,7 @@ package com.lmbarquillo.curriculer.models;
 import com.lmbarquillo.curriculer.entities.Training;
 
 public class TrainingModel {
+    private Long id;
     private Integer promotion;
     private String qualification;
     private String center;
@@ -10,12 +11,21 @@ public class TrainingModel {
 
     public static TrainingModel from(Training entity) {
         TrainingModel model = new TrainingModel();
+        model.setId(entity.getId());
         model.setPromotion(entity.getPromotion());
         model.setQualification(entity.getQualification());
         model.setCenter(entity.getCenter());
         model.setCity(entity.getCity());
 
         return model;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Integer getPromotion() {
