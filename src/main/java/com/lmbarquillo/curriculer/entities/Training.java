@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Training {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
     @Column(scale = 4, nullable = false)

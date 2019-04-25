@@ -30,6 +30,8 @@ public class Values {
 
     public static class Keys {
         public static final Long LANGUAGE_SPANISH = 1L;
+
+        public static final String ACTIVITY_JOB = "job";
     }
 
     public static class Definitions {

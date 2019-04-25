@@ -1,7 +1,10 @@
 package com.lmbarquillo.curriculer.entities;
 
+import com.lmbarquillo.curriculer.utilities.Values;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Job {
@@ -23,6 +26,8 @@ public class Job {
     @ManyToOne
     @JoinColumn(nullable = false)
     private User user;
+    @OneToMany(mappedBy = Values.Keys.ACTIVITY_JOB)
+    private List<Activity> activities;
 
     public Long getId() {
         return id;
@@ -78,5 +83,13 @@ public class Job {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(List<Activity> activities) {
+        this.activities = activities;
     }
 }
