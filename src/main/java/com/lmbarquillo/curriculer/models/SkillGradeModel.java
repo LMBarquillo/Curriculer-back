@@ -1,6 +1,7 @@
 package com.lmbarquillo.curriculer.models;
 
 import com.lmbarquillo.curriculer.entities.LanguageSkillGrade;
+import com.lmbarquillo.curriculer.entities.SkillGrade;
 
 public class SkillGradeModel {
     private Long id;
@@ -15,6 +16,10 @@ public class SkillGradeModel {
     }
 
     public static SkillGradeModel from(LanguageSkillGrade entity) {
+        return new SkillGradeModel(entity.getId(), entity.getGrade());
+    }
+
+    public static SkillGradeModel from(SkillGrade entity) {
         return new SkillGradeModel(entity.getId(), entity.getGrade());
     }
 

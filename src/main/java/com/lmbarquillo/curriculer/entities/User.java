@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Embeddable
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

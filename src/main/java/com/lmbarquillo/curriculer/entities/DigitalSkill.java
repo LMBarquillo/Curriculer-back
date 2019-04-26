@@ -1,14 +1,15 @@
 package com.lmbarquillo.curriculer.entities;
 
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Entity
 public class DigitalSkill implements Serializable {
-    @Id
-    @OneToOne
-    @JoinColumn(nullable = false)
-    private User user;
+    @EmbeddedId
+    private UserPK user;
     @ManyToOne
     @JoinColumn(nullable = false)
     private SkillGrade processing;
@@ -25,11 +26,11 @@ public class DigitalSkill implements Serializable {
     @JoinColumn(nullable = false)
     private SkillGrade solving;
 
-    public User getUser() {
+    public UserPK getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserPK user) {
         this.user = user;
     }
 

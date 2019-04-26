@@ -29,6 +29,8 @@ public class Values {
         public static final String TRAININGS = "/training";
         public static final String JOBS = "/job";
         public static final String LANGUAGES = "/language";
+        public static final String DIGITAL_SKILLS = "/digitalskill";
+        public static final String OTHER_SKILLS = "/otherskill";
     }
 
     public static class Keys {
