@@ -48,7 +48,7 @@ public class JobServiceImpl implements JobService {
 
         model.getActivities().forEach(activityModel -> {
             Activity activity = new Activity();
-            activity.setActivity(activityModel.getActivy());
+            activity.setActivity(activityModel.getActivity());
             activity.setJob(job);
             activityRepository.save(activity);
         });

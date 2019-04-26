@@ -6,7 +6,7 @@ import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Embeddable
-public class LanguageSkillsPK implements Serializable {
+public class LanguageSkillPK implements Serializable {
     @ManyToOne
     @JoinColumn(nullable = false)
     private User user;

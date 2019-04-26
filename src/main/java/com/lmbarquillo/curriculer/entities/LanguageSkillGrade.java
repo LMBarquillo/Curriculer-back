@@ -9,7 +9,7 @@ public class LanguageSkillGrade {
     @Column
     private Long id;
     @Column(length = 2, nullable = false)
-    private String skill;
+    private String grade;
 
     public Long getId() {
         return id;
@@ -19,11 +19,11 @@ public class LanguageSkillGrade {
         this.id = id;
     }
 
-    public String getSkill() {
-        return skill;
+    public String getGrade() {
+        return grade;
     }
 
-    public void setSkill(String skill) {
-        this.skill = skill;
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 }

@@ -4,14 +4,14 @@ import com.lmbarquillo.curriculer.entities.Activity;
 
 public class ActivityModel {
     private Long id;
-    private String activy;
+    private String activity;
 
     public ActivityModel() {
     }
 
     public ActivityModel(Long id, String activy) {
         this.id = id;
-        this.activy = activy;
+        this.activity = activy;
     }
 
     public static ActivityModel from(Activity entity) {
@@ -26,11 +26,11 @@ public class ActivityModel {
         this.id = id;
     }
 
-    public String getActivy() {
-        return activy;
+    public String getActivity() {
+        return activity;
     }
 
-    public void setActivy(String activy) {
-        this.activy = activy;
+    public void setActivity(String activity) {
+        this.activity = activity;
     }
 }

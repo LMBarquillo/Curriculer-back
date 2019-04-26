@@ -6,9 +6,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class LanguageSkills {
+public class LanguageSkill {
     @EmbeddedId
-    private LanguageSkillsPK pk;
+    private LanguageSkillPK pk;
     @ManyToOne
     @JoinColumn(nullable = false)
     private LanguageSkillGrade listening;
@@ -25,11 +25,11 @@ public class LanguageSkills {
     @JoinColumn(nullable = false)
     private LanguageSkillGrade writing;
 
-    public LanguageSkillsPK getPk() {
+    public LanguageSkillPK getPk() {
         return pk;
     }
 
-    public void setPk(LanguageSkillsPK pk) {
+    public void setPk(LanguageSkillPK pk) {
         this.pk = pk;
     }
 
