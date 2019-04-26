@@ -11,5 +11,5 @@ import java.util.Optional;
 @Repository
 public interface LanguageSkillRepository extends JpaRepository<LanguageSkill, Long> {
 
-    Optional<List<LanguageSkill>> findAllByUser(User user);
+    Optional<List<LanguageSkill>> findAllByPk_User(User user);
 }

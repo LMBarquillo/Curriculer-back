@@ -28,6 +28,7 @@ public class Values {
         public static final String AVATAR = "/user/avatar";
         public static final String TRAININGS = "/training";
         public static final String JOBS = "/job";
+        public static final String LANGUAGES = "/language";
     }
 
     public static class Keys {

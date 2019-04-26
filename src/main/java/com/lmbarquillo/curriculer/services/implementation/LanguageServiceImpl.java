@@ -20,7 +20,7 @@ public class LanguageServiceImpl implements LanguageService {
 
     @Override
     public List<LanguageModel> getLanguages(User user){
-        return languageSkillRepository.findAllByUser(user).orElse(Collections.emptyList()).stream().map(LanguageModel::from).collect(Collectors.toList());
+        return languageSkillRepository.findAllByPk_User(user).orElse(Collections.emptyList()).stream().map(LanguageModel::from).collect(Collectors.toList());
     }
 
 
