@@ -25,7 +25,7 @@ public class SkillServiceImpl implements SkillService {
 
     @Override
     public DigitalSkillModel getDigitalSkills(User user) {
-        return DigitalSkillModel.from(digitalSkillRepository.findByUser_User(user));
+        return digitalSkillRepository.findByUser_User(user).map(DigitalSkillModel::from).orElse(null);
     }
 
     @Override
