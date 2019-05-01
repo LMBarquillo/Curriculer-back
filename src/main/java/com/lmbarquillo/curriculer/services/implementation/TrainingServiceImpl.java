@@ -51,8 +51,9 @@ public class TrainingServiceImpl implements TrainingService {
     }
 
     @Override
-    public void deleteTraining(User user, Long id) throws NotFoundException {
+    public Long deleteTraining(User user, Long id) throws NotFoundException {
         Training training = trainingRepository.findByIdAndUser(id, user).orElseThrow(() -> new NotFoundException(Values.Errors.TRAINING_NOT_FOUND));
         trainingRepository.delete(training);
+        return id;
     }
 }

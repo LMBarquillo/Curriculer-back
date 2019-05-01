@@ -13,5 +13,5 @@ public interface TrainingService {
 
     TrainingModel updateTraining(User user, TrainingModel model) throws NotFoundException;
 
-    void deleteTraining(User user, Long id) throws NotFoundException;
+    Long deleteTraining(User user, Long id) throws NotFoundException;
 }

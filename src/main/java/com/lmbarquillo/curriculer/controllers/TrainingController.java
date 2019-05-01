@@ -36,9 +36,8 @@ public class TrainingController {
         return ResponseEntity.ok(trainingService.updateTraining(user, model));
     }
 
-    @DeleteMapping(Values.EndPoints.TRAININGS)
-    public ResponseEntity deleteTraining(@RequestAttribute(Values.Strings.ATTRIBUTE_USER) User user, @RequestParam Long id) throws NotFoundException {
-        trainingService.deleteTraining(user, id);
-        return ResponseEntity.ok().build();
+    @DeleteMapping(Values.EndPoints.TRAININGS + "/{id}")
+    public ResponseEntity<Long> deleteTraining(@RequestAttribute(Values.Strings.ATTRIBUTE_USER) User user, @PathVariable Long id) throws NotFoundException {
+        return ResponseEntity.ok(trainingService.deleteTraining(user, id));
     }
 }
