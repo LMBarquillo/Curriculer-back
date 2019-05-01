@@ -2,6 +2,7 @@ package com.lmbarquillo.curriculer.controllers;
 
 import com.lmbarquillo.curriculer.entities.User;
 import com.lmbarquillo.curriculer.exceptions.DuplicatedItemException;
+import com.lmbarquillo.curriculer.exceptions.generic.NotFoundException;
 import com.lmbarquillo.curriculer.models.UserBasicModel;
 import com.lmbarquillo.curriculer.models.UserModel;
 import com.lmbarquillo.curriculer.models.UserRegisterModel;
@@ -30,6 +31,12 @@ public class UserController {
     @GetMapping(Values.EndPoints.USER)
     public ResponseEntity<UserModel> getUserData(@RequestAttribute(Values.Strings.ATTRIBUTE_USER) User user) {
         return ResponseEntity.ok(UserModel.from(user));
+    }
+
+    @PutMapping(Values.EndPoints.USER)
+    public ResponseEntity<UserModel> updateUserData(@RequestAttribute(Values.Strings.ATTRIBUTE_USER) User user,
+                                                    @RequestBody UserModel model) throws NotFoundException {
+        return ResponseEntity.ok(userService.updateUserData(model));
     }
 
     @PutMapping(Values.EndPoints.AVATAR)

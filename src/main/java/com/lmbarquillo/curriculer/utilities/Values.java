@@ -15,6 +15,7 @@ public class Values {
         public static final String DUPLICATED_USER = "El nombre de usuario introducido ya existe. Por favor, elija otro";
         public static final String TRAINING_NOT_FOUND = "Estudios no encontrados";
         public static final String SECTOR_NOT_FOUND = "Sector de actividad no encontrado";
+        public static final String USER_NOT_FOUND = "Usuario inexistente";
     }
 
     public static class Info {

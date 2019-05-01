@@ -17,5 +17,7 @@ public interface UserService {
 
     UserBasicModel createUser(UserRegisterModel model) throws DuplicatedItemException, UnsupportedEncodingException;
 
+    UserModel updateUserData(UserModel model) throws NotFoundException;
+
     UserModel updateImage(User user, String img);
 }

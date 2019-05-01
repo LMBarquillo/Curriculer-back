@@ -1,5 +1,6 @@
 package com.lmbarquillo.curriculer.entities;
 
+import com.lmbarquillo.curriculer.models.UserModel;
 import com.lmbarquillo.curriculer.models.UserRegisterModel;
 import com.lmbarquillo.curriculer.utilities.Utilities;
 import com.lmbarquillo.curriculer.utilities.Values;
@@ -50,6 +51,16 @@ public class User {
         user.setNationality("");
 
         return user;
+    }
+
+    public void updateFrom(UserModel model) {
+        setName(model.getName());
+        setSurname(model.getSurname());
+        setAddress(model.getAddress());
+        setCity(model.getCity());
+        setEmail(model.getEmail());
+        setNationality(model.getNationality());
+        setBirthdate(model.getBirthdate());
     }
 
     public Long getId() {

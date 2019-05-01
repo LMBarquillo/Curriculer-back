@@ -57,6 +57,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserModel updateUserData(UserModel model) throws NotFoundException {
+        User user = userRepository.findById(model.getId()).orElseThrow(() -> new NotFoundException(Values.Errors.USER_NOT_FOUND));
+        user.updateFrom(model);
+        return UserModel.from(userRepository.save(user));
+    }
+
+    @Override
     public UserModel updateImage(User user, String img) {
         user.setPicture(img);
         return UserModel.from(userRepository.save(user));
