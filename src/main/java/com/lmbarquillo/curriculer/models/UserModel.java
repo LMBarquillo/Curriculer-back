@@ -14,7 +14,6 @@ public class UserModel {
     private Date birthdate;
     private String nationality;
     private String picture;
-    private String drivingLicense;
 
     public static UserModel from(User entity) {
         UserModel model = new UserModel();
@@ -27,7 +26,6 @@ public class UserModel {
         model.setBirthdate(entity.getBirthdate());
         model.setNationality(entity.getNationality());
         model.setPicture(entity.getPicture());
-        model.setDrivingLicense(entity.getDrivingLicense());
 
         return model;
     }
@@ -102,13 +100,5 @@ public class UserModel {
 
     public void setPicture(String picture) {
         this.picture = picture;
-    }
-
-    public String getDrivingLicense() {
-        return drivingLicense;
-    }
-
-    public void setDrivingLicense(String drivingLicense) {
-        this.drivingLicense = drivingLicense;
     }
 }

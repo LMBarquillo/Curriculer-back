@@ -34,8 +34,6 @@ public class User {
     private String nationality;
     @Column(columnDefinition = Values.Definitions.TEXT)
     private String picture;
-    @Column(length = 15)
-    private String drivingLicense;
     @ManyToOne
     @JoinColumn(nullable = false)
     private Language motherLanguage;
@@ -48,6 +46,8 @@ public class User {
         user.setUser(model.getUser());
         user.setPassword(Utilities.MySQLPassword(model.getPassword()));
         user.setAddress("");
+        user.setCity("");
+        user.setNationality("");
 
         return user;
     }
@@ -138,14 +138,6 @@ public class User {
 
     public void setPicture(String picture) {
         this.picture = picture;
-    }
-
-    public String getDrivingLicense() {
-        return drivingLicense;
-    }
-
-    public void setDrivingLicense(String drivingLicense) {
-        this.drivingLicense = drivingLicense;
     }
 
     public Language getMotherLanguage() {
