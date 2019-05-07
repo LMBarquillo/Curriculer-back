@@ -16,6 +16,7 @@ public class Values {
         public static final String TRAINING_NOT_FOUND = "Estudios no encontrados";
         public static final String SECTOR_NOT_FOUND = "Sector de actividad no encontrado";
         public static final String USER_NOT_FOUND = "Usuario inexistente";
+        public static final String JOB_NOB_FOUND = "Experiencia laboral no encontrada";
     }
 
     public static class Info {
@@ -29,6 +30,7 @@ public class Values {
         public static final String AVATAR = "/user/avatar";
         public static final String TRAININGS = "/training";
         public static final String JOBS = "/job";
+        public static final String SECTORS = "/sector";
         public static final String LANGUAGES = "/language";
         public static final String DIGITAL_SKILLS = "/digitalskill";
         public static final String OTHER_SKILLS = "/otherskill";

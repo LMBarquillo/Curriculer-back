@@ -12,4 +12,6 @@ import java.util.Optional;
 public interface JobRepository extends JpaRepository<Job, Long> {
 
     Optional<List<Job>> findAllByUser(User user);
+
+    Optional<Job> findByUserAndId(User user, Long id);
 }

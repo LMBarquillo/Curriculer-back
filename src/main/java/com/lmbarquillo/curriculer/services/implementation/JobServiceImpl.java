@@ -5,6 +5,7 @@ import com.lmbarquillo.curriculer.entities.Job;
 import com.lmbarquillo.curriculer.entities.User;
 import com.lmbarquillo.curriculer.exceptions.generic.NotFoundException;
 import com.lmbarquillo.curriculer.models.JobModel;
+import com.lmbarquillo.curriculer.models.SectorModel;
 import com.lmbarquillo.curriculer.repositories.ActivityRepository;
 import com.lmbarquillo.curriculer.repositories.JobRepository;
 import com.lmbarquillo.curriculer.repositories.SectorRepository;
@@ -12,6 +13,7 @@ import com.lmbarquillo.curriculer.services.JobService;
 import com.lmbarquillo.curriculer.utilities.Values;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,6 +38,12 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
+    public List<SectorModel> getSectors() {
+        return sectorRepository.findAll().stream().map(SectorModel::from).collect(Collectors.toList());
+    }
+
+    @Override
+    @Transactional(rollbackOn = Exception.class)
     public JobModel insertJob(User user, JobModel model) throws NotFoundException {
         Job job = new Job();
         job.setStartDate(model.getFrom());
@@ -46,15 +54,41 @@ public class JobServiceImpl implements JobService {
         job.setUser(user);
         jobRepository.save(job);
 
+        insertJobActivities(model, job);
+
+        return model;
+    }
+
+    @Override
+    @Transactional(rollbackOn = Exception.class)
+    public JobModel updateJob(User user, JobModel model) throws NotFoundException {
+        Job job = jobRepository.findByUserAndId(user, model.getId()).orElseThrow(() -> new NotFoundException((Values.Errors.JOB_NOB_FOUND)));
+        job.setStartDate(model.getFrom());
+        job.setEndDate(model.getTo());
+        job.setEmployer(model.getEmployer());
+        job.setCity(model.getCity());
+        job.setSector(sectorRepository.findById(model.getSector().getId()).orElseThrow(() -> new NotFoundException(Values.Errors.SECTOR_NOT_FOUND)));
+        jobRepository.save(job);
+
+        activityRepository.deleteAllByJob(job);
+        insertJobActivities(model, job);
+
+        return model;
+    }
+
+    @Override
+    public Long deleteJob(User user, Long id) throws NotFoundException {
+        Job job = jobRepository.findByUserAndId(user, id).orElseThrow(() -> new NotFoundException((Values.Errors.JOB_NOB_FOUND)));
+        jobRepository.delete(job);
+        return id;
+    }
+
+    private void insertJobActivities(JobModel model, Job job) {
         model.getActivities().forEach(activityModel -> {
             Activity activity = new Activity();
             activity.setActivity(activityModel.getActivity());
             activity.setJob(job);
             activityRepository.save(activity);
         });
-
-        return model;
     }
-
-
 }
