@@ -77,8 +77,10 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
+    @Transactional(rollbackOn = Exception.class)
     public Long deleteJob(User user, Long id) throws NotFoundException {
         Job job = jobRepository.findByUserAndId(user, id).orElseThrow(() -> new NotFoundException((Values.Errors.JOB_NOB_FOUND)));
+        activityRepository.deleteAllByJob(job);
         jobRepository.delete(job);
         return id;
     }
