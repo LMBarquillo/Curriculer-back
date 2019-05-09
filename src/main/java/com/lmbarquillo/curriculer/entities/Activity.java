@@ -14,6 +14,13 @@ public class Activity {
     @JoinColumn(nullable = false)
     private Job job;
 
+    public Activity() {
+    }
+
+    public Activity(String activity, Job job) {
+        this.activity = activity;
+        this.job = job;
+    }
 
     public Long getId() {
         return id;

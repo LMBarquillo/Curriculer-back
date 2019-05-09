@@ -52,28 +52,26 @@ public class JobServiceImpl implements JobService {
         job.setCity(model.getCity());
         job.setSector(sectorRepository.findById(model.getSector().getId()).orElseThrow(() -> new NotFoundException(Values.Errors.SECTOR_NOT_FOUND)));
         job.setUser(user);
-        jobRepository.save(job);
+        model.getActivities().forEach(activityModel -> job.getActivities().add(new Activity(activityModel.getActivity(), job)));
 
-        insertJobActivities(model, job);
-
-        return model;
+        return JobModel.from(jobRepository.save(job));
     }
 
     @Override
     @Transactional(rollbackOn = Exception.class)
     public JobModel updateJob(User user, JobModel model) throws NotFoundException {
         Job job = jobRepository.findByUserAndId(user, model.getId()).orElseThrow(() -> new NotFoundException((Values.Errors.JOB_NOB_FOUND)));
+        activityRepository.deleteAllByJob(job);
         job.setStartDate(model.getFrom());
         job.setEndDate(model.getTo());
         job.setEmployer(model.getEmployer());
         job.setCity(model.getCity());
         job.setSector(sectorRepository.findById(model.getSector().getId()).orElseThrow(() -> new NotFoundException(Values.Errors.SECTOR_NOT_FOUND)));
-        jobRepository.save(job);
+        job.getActivities().clear();
+        model.getActivities().forEach(activityModel -> job.getActivities().add(new Activity(activityModel.getActivity(), job)));
 
-        activityRepository.deleteAllByJob(job);
-        insertJobActivities(model, job);
 
-        return model;
+        return JobModel.from(jobRepository.save(job));
     }
 
     @Override
@@ -83,14 +81,5 @@ public class JobServiceImpl implements JobService {
         activityRepository.deleteAllByJob(job);
         jobRepository.delete(job);
         return id;
-    }
-
-    private void insertJobActivities(JobModel model, Job job) {
-        model.getActivities().forEach(activityModel -> {
-            Activity activity = new Activity();
-            activity.setActivity(activityModel.getActivity());
-            activity.setJob(job);
-            activityRepository.save(activity);
-        });
     }
 }

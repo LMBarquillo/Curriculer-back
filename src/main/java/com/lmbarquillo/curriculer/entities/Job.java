@@ -3,6 +3,7 @@ package com.lmbarquillo.curriculer.entities;
 import com.lmbarquillo.curriculer.utilities.Values;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +29,10 @@ public class Job {
     private User user;
     @OneToMany(mappedBy = Values.Keys.ACTIVITY_JOB, cascade = CascadeType.ALL)
     private List<Activity> activities;
+
+    public Job() {
+        setActivities(new ArrayList<>());
+    }
 
     public Long getId() {
         return id;
