@@ -31,7 +31,9 @@ public class Values {
         public static final String TRAININGS = "/training";
         public static final String JOBS = "/job";
         public static final String SECTORS = "/sector";
+        public static final String LANGUAGE_SKILLS = "/language/skill";
         public static final String LANGUAGES = "/language";
+        public static final String LANGUAGE_GRADES = "/language/grade";
         public static final String DIGITAL_SKILLS = "/digitalskill";
         public static final String OTHER_SKILLS = "/otherskill";
     }
