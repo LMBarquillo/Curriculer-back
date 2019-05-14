@@ -14,6 +14,14 @@ public class LanguageSkillPK implements Serializable {
     @JoinColumn(nullable = false)
     private Language language;
 
+    public LanguageSkillPK() {
+    }
+
+    public LanguageSkillPK(User user, Language language) {
+        this.user = user;
+        this.language = language;
+    }
+
     public User getUser() {
         return user;
     }

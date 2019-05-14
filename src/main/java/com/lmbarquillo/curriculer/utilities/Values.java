@@ -16,7 +16,11 @@ public class Values {
         public static final String TRAINING_NOT_FOUND = "Estudios no encontrados";
         public static final String SECTOR_NOT_FOUND = "Sector de actividad no encontrado";
         public static final String USER_NOT_FOUND = "Usuario inexistente";
-        public static final String JOB_NOB_FOUND = "Experiencia laboral no encontrada";
+        public static final String JOB_NOT_FOUND = "Experiencia laboral no encontrada";
+        public static final String LANGUAGE_NOT_FOUND = "Idioma no encontrado";
+        public static final String GRADE_NOT_FOUND = "Nivel de dominio no encontrado";
+        public static final String LANGUAGE_SKILL_NOT_FOUND = "Conocimiento de idioma no encontrado";
+        public static final String DUPLICATED_LANGUAGE = "El lenguaque que intenta insertar ya se encuentra en su lista";
     }
 
     public static class Info {

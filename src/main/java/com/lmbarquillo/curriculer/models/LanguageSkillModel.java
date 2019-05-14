@@ -4,8 +4,7 @@ import com.lmbarquillo.curriculer.entities.LanguageSkill;
 
 public class LanguageSkillModel {
     private Long id;
-    private String language;
-    private String code;
+    private LanguageModel language;
     private SkillGradeModel listening;
     private SkillGradeModel reading;
     private SkillGradeModel interaction;
@@ -15,8 +14,7 @@ public class LanguageSkillModel {
     public static LanguageSkillModel from(LanguageSkill entity) {
         LanguageSkillModel model = new LanguageSkillModel();
         model.setId(entity.getLanguage().getId());
-        model.setLanguage(entity.getLanguage().getLanguage());
-        model.setCode(entity.getLanguage().getCode());
+        model.setLanguage(LanguageModel.from(entity.getLanguage()));
         model.setListening(SkillGradeModel.from(entity.getListening()));
         model.setReading(SkillGradeModel.from(entity.getReading()));
         model.setInteraction(SkillGradeModel.from(entity.getInteraction()));
@@ -34,20 +32,12 @@ public class LanguageSkillModel {
         this.id = id;
     }
 
-    public String getLanguage() {
+    public LanguageModel getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
+    public void setLanguage(LanguageModel language) {
         this.language = language;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public SkillGradeModel getListening() {
