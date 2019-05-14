@@ -66,11 +66,11 @@ public class LanguageServiceImpl implements LanguageService {
 
         LanguageSkill skill = new LanguageSkill();
         skill.setPk(new LanguageSkillPK(user, language));
-        skill.setListening(languageSkillGradeRepository.findById(skill.getListening().getId()).orElseThrow(() -> new NotFoundException(Values.Errors.GRADE_NOT_FOUND)));
-        skill.setReading(languageSkillGradeRepository.findById(skill.getReading().getId()).orElseThrow(() -> new NotFoundException(Values.Errors.GRADE_NOT_FOUND)));
-        skill.setInteraction(languageSkillGradeRepository.findById(skill.getInteraction().getId()).orElseThrow(() -> new NotFoundException(Values.Errors.GRADE_NOT_FOUND)));
-        skill.setProduction(languageSkillGradeRepository.findById(skill.getProduction().getId()).orElseThrow(() -> new NotFoundException(Values.Errors.GRADE_NOT_FOUND)));
-        skill.setWriting(languageSkillGradeRepository.findById(skill.getWriting().getId()).orElseThrow(() -> new NotFoundException(Values.Errors.GRADE_NOT_FOUND)));
+        skill.setListening(languageSkillGradeRepository.findById(languageSkill.getListening().getId()).orElseThrow(() -> new NotFoundException(Values.Errors.GRADE_NOT_FOUND)));
+        skill.setReading(languageSkillGradeRepository.findById(languageSkill.getReading().getId()).orElseThrow(() -> new NotFoundException(Values.Errors.GRADE_NOT_FOUND)));
+        skill.setInteraction(languageSkillGradeRepository.findById(languageSkill.getInteraction().getId()).orElseThrow(() -> new NotFoundException(Values.Errors.GRADE_NOT_FOUND)));
+        skill.setProduction(languageSkillGradeRepository.findById(languageSkill.getProduction().getId()).orElseThrow(() -> new NotFoundException(Values.Errors.GRADE_NOT_FOUND)));
+        skill.setWriting(languageSkillGradeRepository.findById(languageSkill.getWriting().getId()).orElseThrow(() -> new NotFoundException(Values.Errors.GRADE_NOT_FOUND)));
 
         return LanguageSkillModel.from(languageSkillRepository.save(skill));
     }
