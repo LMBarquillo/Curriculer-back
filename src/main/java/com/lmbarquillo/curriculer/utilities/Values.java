@@ -20,7 +20,7 @@ public class Values {
         public static final String LANGUAGE_NOT_FOUND = "Idioma no encontrado";
         public static final String GRADE_NOT_FOUND = "Nivel de dominio no encontrado";
         public static final String LANGUAGE_SKILL_NOT_FOUND = "Conocimiento de idioma no encontrado";
-        public static final String DUPLICATED_LANGUAGE = "El lenguaque que intenta insertar ya se encuentra en su lista";
+        public static final String DUPLICATED_LANGUAGE = "El idioma que intenta insertar ya se encuentra en su lista";
     }
 
     public static class Info {
