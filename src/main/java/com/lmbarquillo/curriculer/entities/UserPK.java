@@ -11,6 +11,13 @@ public class UserPK implements Serializable {
     @JoinColumn(nullable = false)
     private User user;
 
+    public UserPK() {
+    }
+
+    public UserPK(User user) {
+        this.user = user;
+    }
+
     public User getUser() {
         return user;
     }

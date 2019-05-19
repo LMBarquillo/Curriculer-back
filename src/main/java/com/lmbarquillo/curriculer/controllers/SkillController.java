@@ -3,6 +3,7 @@ package com.lmbarquillo.curriculer.controllers;
 import com.lmbarquillo.curriculer.entities.User;
 import com.lmbarquillo.curriculer.exceptions.generic.NotFoundException;
 import com.lmbarquillo.curriculer.models.DigitalSkillModel;
+import com.lmbarquillo.curriculer.models.SkillGradeModel;
 import com.lmbarquillo.curriculer.models.SkillModel;
 import com.lmbarquillo.curriculer.services.SkillService;
 import com.lmbarquillo.curriculer.utilities.Values;
@@ -20,9 +21,20 @@ public class SkillController {
         this.skillService = skillService;
     }
 
+    @GetMapping(Values.EndPoints.SKILL_GRADES)
+    public ResponseEntity<List<SkillGradeModel>> getSkillGrades(@RequestAttribute(Values.Strings.ATTRIBUTE_USER) User user) {
+        return ResponseEntity.ok(skillService.getSkillGrades(user));
+    }
+
     @GetMapping(Values.EndPoints.DIGITAL_SKILLS)
     public ResponseEntity<DigitalSkillModel> getDigitalSkills(@RequestAttribute(Values.Strings.ATTRIBUTE_USER) User user) {
         return ResponseEntity.ok(skillService.getDigitalSkills(user));
+    }
+
+    @PutMapping(Values.EndPoints.DIGITAL_SKILLS)
+    public ResponseEntity<DigitalSkillModel> updateDigitalSkills(@RequestAttribute(Values.Strings.ATTRIBUTE_USER) User user,
+                                                                 @RequestBody DigitalSkillModel skills) throws NotFoundException {
+        return ResponseEntity.ok(skillService.updateDigitalSkills(user, skills));
     }
 
     @GetMapping(Values.EndPoints.OTHER_SKILLS)

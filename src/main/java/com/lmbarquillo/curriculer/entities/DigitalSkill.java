@@ -26,6 +26,13 @@ public class DigitalSkill implements Serializable {
     @JoinColumn(nullable = false)
     private SkillGrade solving;
 
+    public DigitalSkill() {
+    }
+
+    public DigitalSkill(UserPK user) {
+        this.user = user;
+    }
+
     public UserPK getUser() {
         return user;
     }

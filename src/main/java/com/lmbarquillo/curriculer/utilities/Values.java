@@ -41,6 +41,7 @@ public class Values {
         public static final String LANGUAGE_GRADES = "/language/grade";
         public static final String DIGITAL_SKILLS = "/digitalskill";
         public static final String OTHER_SKILLS = "/otherskill";
+        public static final String SKILL_GRADES = "/skill/grade";
     }
 
     public static class Keys {
