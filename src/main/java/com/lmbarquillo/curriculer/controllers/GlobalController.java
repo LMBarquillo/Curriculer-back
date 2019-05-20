@@ -33,7 +33,7 @@ public class GlobalController {
     }
 
     @GetMapping(Values.EndPoints.CURRICULUM)
-    public ResponseEntity<GlobalModel> getCurriculum(@RequestParam String userName) throws NotFoundException {
+    public ResponseEntity<GlobalModel> getCurriculum(@RequestParam(value = "user") String userName) throws NotFoundException {
         User user = userService.getUserDataByUser(userName);
 
         GlobalModel model = new GlobalModel();
