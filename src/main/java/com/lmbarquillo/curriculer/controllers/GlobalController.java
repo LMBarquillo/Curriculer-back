@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class GlobalController {
-
     private UserService userService;
     private TrainingService trainingService;
     private JobService jobService;

@@ -67,6 +67,7 @@ public class Interceptors extends HandlerInterceptorAdapter {
 
         return request.getMethod().equals(HttpMethod.OPTIONS.toString()) ||
                 endPoint.equals(Values.EndPoints.LOGIN) ||
+                endPoint.equals(Values.EndPoints.CURRICULUM) ||
                 (endPoint.equals(Values.EndPoints.USER) && request.getMethod().equals(HttpMethod.POST.toString()));
 
     }
