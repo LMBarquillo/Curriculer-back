@@ -13,6 +13,8 @@ import java.io.UnsupportedEncodingException;
 public interface UserService {
     UserBasicModel login(LoginModel model) throws NotFoundException;
 
+    User getUserDataByUser(String user) throws NotFoundException;
+
     User checkUser(String user, String token);
 
     UserBasicModel createUser(UserRegisterModel model) throws DuplicatedItemException, UnsupportedEncodingException;

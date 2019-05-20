@@ -35,6 +35,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserDataByUser(String user) throws NotFoundException {
+        return userRepository.findByUser(user).orElseThrow(() -> new NotFoundException(Values.Errors.USER_NOT_FOUND));
+    }
+
+    @Override
     public User checkUser(String user, String token) {
         return userRepository.checkUser(user, token);
     }

@@ -31,6 +31,7 @@ public class Values {
 
     public static class EndPoints {
         public static final String LOGIN = "/login";
+        public static final String CURRICULUM = "/curriculum";
         public static final String USER = "/user";
         public static final String AVATAR = "/user/avatar";
         public static final String TRAININGS = "/training";
