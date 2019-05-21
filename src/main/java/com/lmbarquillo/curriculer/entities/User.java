@@ -27,6 +27,8 @@ public class User {
     private String address;
     @Column(length = 80, nullable = false)
     private String city;
+    @Column(length = 15, nullable = false)
+    private String phone;
     @Column(length = 60, nullable = false)
     private String email;
     @Column
@@ -46,6 +48,7 @@ public class User {
         user.setEmail(model.getEmail());
         user.setUser(model.getUser());
         user.setPassword(Utilities.MySQLPassword(model.getPassword()));
+        user.setPhone("");
         user.setAddress("");
         user.setCity("");
         user.setNationality("");
@@ -58,6 +61,7 @@ public class User {
         setSurname(model.getSurname());
         setAddress(model.getAddress());
         setCity(model.getCity());
+        setPhone(model.getPhone());
         setEmail(model.getEmail());
         setNationality(model.getNationality());
         setBirthdate(model.getBirthdate());
@@ -117,6 +121,14 @@ public class User {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {

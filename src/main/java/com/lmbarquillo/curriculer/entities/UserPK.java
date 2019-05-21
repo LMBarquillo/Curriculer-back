@@ -25,4 +25,5 @@ public class UserPK implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
+
 }

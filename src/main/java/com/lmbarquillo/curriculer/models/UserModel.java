@@ -10,6 +10,7 @@ public class UserModel {
     private String surname;
     private String address;
     private String city;
+    private String phone;
     private String email;
     private Date birthdate;
     private String nationality;
@@ -22,6 +23,7 @@ public class UserModel {
         model.setSurname(entity.getSurname());
         model.setAddress(entity.getAddress());
         model.setCity(entity.getCity());
+        model.setPhone(entity.getPhone());
         model.setEmail(entity.getEmail());
         model.setBirthdate(entity.getBirthdate());
         model.setNationality(entity.getNationality());
@@ -68,6 +70,14 @@ public class UserModel {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {
