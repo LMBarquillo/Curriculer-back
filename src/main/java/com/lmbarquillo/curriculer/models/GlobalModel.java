@@ -1,5 +1,6 @@
 package com.lmbarquillo.curriculer.models;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class GlobalModel {
@@ -24,6 +25,7 @@ public class GlobalModel {
 
     public void setTrainings(List<TrainingModel> trainings) {
         this.trainings = trainings;
+        this.trainings.sort(Comparator.comparing(TrainingModel::getPromotion).reversed());
     }
 
     public List<JobModel> getJobs() {
@@ -32,6 +34,7 @@ public class GlobalModel {
 
     public void setJobs(List<JobModel> jobs) {
         this.jobs = jobs;
+        this.jobs.sort(Comparator.comparing(JobModel::getFrom).reversed());
     }
 
     public List<LanguageSkillModel> getLanguages() {
