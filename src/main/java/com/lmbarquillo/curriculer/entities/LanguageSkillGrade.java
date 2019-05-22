@@ -8,7 +8,7 @@ public class LanguageSkillGrade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
-    @Column(length = 2, nullable = false)
+    @Column(length = 45, nullable = false)
     private String grade;
 
     public Long getId() {
