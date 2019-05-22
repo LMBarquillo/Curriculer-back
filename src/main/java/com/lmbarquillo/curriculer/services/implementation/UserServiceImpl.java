@@ -1,14 +1,15 @@
 package com.lmbarquillo.curriculer.services.implementation;
 
-import com.lmbarquillo.curriculer.entities.Language;
-import com.lmbarquillo.curriculer.entities.User;
+import com.lmbarquillo.curriculer.entities.*;
 import com.lmbarquillo.curriculer.exceptions.DuplicatedItemException;
 import com.lmbarquillo.curriculer.exceptions.generic.NotFoundException;
 import com.lmbarquillo.curriculer.models.LoginModel;
 import com.lmbarquillo.curriculer.models.UserBasicModel;
 import com.lmbarquillo.curriculer.models.UserModel;
 import com.lmbarquillo.curriculer.models.UserRegisterModel;
+import com.lmbarquillo.curriculer.repositories.DigitalSkillRepository;
 import com.lmbarquillo.curriculer.repositories.LanguageRepository;
+import com.lmbarquillo.curriculer.repositories.SkillGradeRepository;
 import com.lmbarquillo.curriculer.repositories.UserRepository;
 import com.lmbarquillo.curriculer.services.UserService;
 import com.lmbarquillo.curriculer.utilities.Utilities;
@@ -21,11 +22,17 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private LanguageRepository languageRepository;
+    private DigitalSkillRepository digitalSkillRepository;
+    private SkillGradeRepository skillGradeRepository;
 
     public UserServiceImpl(UserRepository usersRepository,
-                           LanguageRepository languageRepository) {
+                           LanguageRepository languageRepository,
+                           DigitalSkillRepository digitalSkillRepository,
+                           SkillGradeRepository skillGradeRepository) {
         this.userRepository = usersRepository;
         this.languageRepository = languageRepository;
+        this.digitalSkillRepository = digitalSkillRepository;
+        this.skillGradeRepository = skillGradeRepository;
     }
 
     @Override
@@ -45,7 +52,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserBasicModel createUser(UserRegisterModel model) throws DuplicatedItemException {
+    public UserBasicModel createUser(UserRegisterModel model) throws DuplicatedItemException, NotFoundException {
         if(userRepository.existsUserByEmail(model.getEmail())) {
             throw new DuplicatedItemException(Values.Errors.DUPLICATED_EMAIL);
         }
@@ -53,11 +60,22 @@ public class UserServiceImpl implements UserService {
             throw new DuplicatedItemException(Values.Errors.DUPLICATED_USER);
         }
 
+        SkillGrade notSet = skillGradeRepository.findById(Values.Keys.SKILL_NOT_SET).orElseThrow(() -> new NotFoundException(Values.Errors.SKILL_NOT_FOUND));
+
         User user = User.from(model);
         Language lang = languageRepository.getOne(Values.Keys.LANGUAGE_SPANISH);
         user.setMotherLanguage(lang);
-
         userRepository.save(user);
+
+        DigitalSkill digitalSkill = new DigitalSkill();
+        digitalSkill.setUser(new UserPK(user));
+        digitalSkill.setProcessing(notSet);
+        digitalSkill.setContents(notSet);
+        digitalSkill.setCommunication(notSet);
+        digitalSkill.setSafety(notSet);
+        digitalSkill.setSolving(notSet);
+        digitalSkillRepository.save(digitalSkill);
+
         return UserBasicModel.from(user);
     }
 

@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @PostMapping(Values.EndPoints.USER)
-    public ResponseEntity<UserBasicModel> userRegister(@RequestBody UserRegisterModel user) throws DuplicatedItemException, UnsupportedEncodingException {
+    public ResponseEntity<UserBasicModel> userRegister(@RequestBody UserRegisterModel user) throws DuplicatedItemException, UnsupportedEncodingException, NotFoundException {
         return ResponseEntity.ok(userService.createUser(user));
     }
 
