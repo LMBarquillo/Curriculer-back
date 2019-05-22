@@ -60,7 +60,7 @@ public class JobServiceImpl implements JobService {
     @Override
     @Transactional(rollbackOn = Exception.class)
     public JobModel updateJob(User user, JobModel model) throws NotFoundException {
-        Job job = jobRepository.findByUserAndId(user, model.getId()).orElseThrow(() -> new NotFoundException((Values.Errors.JOB_NOB_FOUND)));
+        Job job = jobRepository.findByUserAndId(user, model.getId()).orElseThrow(() -> new NotFoundException((Values.Errors.JOB_NOT_FOUND)));
         activityRepository.deleteAllByJob(job);
         job.setStartDate(model.getFrom());
         job.setEndDate(model.getTo());
@@ -77,7 +77,7 @@ public class JobServiceImpl implements JobService {
     @Override
     @Transactional(rollbackOn = Exception.class)
     public Long deleteJob(User user, Long id) throws NotFoundException {
-        Job job = jobRepository.findByUserAndId(user, id).orElseThrow(() -> new NotFoundException((Values.Errors.JOB_NOB_FOUND)));
+        Job job = jobRepository.findByUserAndId(user, id).orElseThrow(() -> new NotFoundException((Values.Errors.JOB_NOT_FOUND)));
         activityRepository.deleteAllByJob(job);
         jobRepository.delete(job);
         return id;

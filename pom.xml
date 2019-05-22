@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.lmbarquillo.curriculer</groupId>
 	<artifactId>Curriculer</artifactId>
-	<version>0.1.0</version>
+	<version>1.0.0</version>
 	<name>Curriculer</name>
 	<description>Aplicación de gestión de curriculums online</description>
 

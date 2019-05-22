@@ -17,7 +17,7 @@ public interface UserService {
 
     User checkUser(String user, String token);
 
-    UserBasicModel createUser(UserRegisterModel model) throws DuplicatedItemException, UnsupportedEncodingException;
+    UserBasicModel createUser(UserRegisterModel model) throws DuplicatedItemException, UnsupportedEncodingException, NotFoundException;
 
     UserModel updateUserData(UserModel model) throws NotFoundException;
 

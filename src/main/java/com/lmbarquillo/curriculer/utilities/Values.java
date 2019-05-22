@@ -47,6 +47,7 @@ public class Values {
 
     public static class Keys {
         public static final Long LANGUAGE_SPANISH = 1L;
+        public static final Long SKILL_NOT_SET = 1L;
 
         public static final String ACTIVITY_JOB = "job";
     }
