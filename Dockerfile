@@ -1,7 +1,4 @@
 FROM openjdk:8-jre
-WORKDIR /app
-ARG PROFILE_ACTIVE
-ENV SPRING_PROFILES_ACTIVE=${PROFILE_ACTIVE}
-ARG FILENAME
-COPY target/${FILENAME} ./app.jar
-ENTRYPOINT ["java", "-Xmx1024m", "-Xms1024m", "-Xss10m", "-jar", "app.jar"]
+EXPOSE 8888
+ADD /target/Curriculer-1.0.1.jar app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
