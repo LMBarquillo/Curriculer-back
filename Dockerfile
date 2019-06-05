@@ -1,0 +1,7 @@
+FROM openjdk:8-jre
+WORKDIR /app
+ARG PROFILE_ACTIVE
+ENV SPRING_PROFILES_ACTIVE=${PROFILE_ACTIVE}
+ARG FILENAME
+COPY target/${FILENAME} ./app.jar
+ENTRYPOINT ["java", "-Xmx1024m", "-Xms1024m", "-Xss10m", "-jar", "app.jar"]

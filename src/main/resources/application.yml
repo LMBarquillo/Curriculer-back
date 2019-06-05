@@ -1,7 +1,7 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/curriculer?useSSL=false&useTimezone=true&serverTimezone=Europe/Madrid
-    username: curriculer
+    url: jdbc:mysql://localhost:3306/curricul_web?useSSL=false&useTimezone=true&serverTimezone=Europe/Madrid
+    username: curricul_web
     password: 5V4dWb5y7rUdBwfmpzXBgCvJzMkUrMOK9dDAr5ggrAv3niEW4D
   jpa:
     show-sql: false
@@ -10,6 +10,3 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-
-server:
-  port: 8888
